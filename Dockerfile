@@ -2,7 +2,8 @@
 FROM nginx:1.27-alpine
 
 # Crear usuario no-root
-RUN addgroup -g 101 -S nginx && adduser -S -D -H -u 101 -h /var/cache/nginx -s /sbin/nologin -G nginx -g nginx nginx || true
+RUN addgroup -g 101 -S nginx && \
+    adduser -S -D -H -u 101 -h /var/cache/nginx -s /sbin/nologin -G nginx -g nginx nginx || true
 
 # Copia archivo de configuración seguro
 COPY nginx.conf /etc/nginx/nginx.conf
@@ -17,9 +18,9 @@ RUN chown -R nginx:nginx /usr/share/nginx/html && \
     chmod 755 /usr/share/nginx/html && \
     chmod 644 /usr/share/nginx/html/*.html /usr/share/nginx/html/*.css /usr/share/nginx/html/*.jar
 
-# Expone puerto HTTPS
-EXPOSE 443
+# Expone solo HTTP (Render agrega HTTPS automáticamente)
 EXPOSE 80
 
 # Ejecutar como usuario nginx (no-root)
 USER nginx
+
