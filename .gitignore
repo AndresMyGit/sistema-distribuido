@@ -1,0 +1,45 @@
+# Variables de entorno
+.env
+.env.local
+.env.*.local
+
+# Certificados SSL (si los tienes localmente)
+*.pem
+*.key
+*.crt
+certs/
+
+# Logs
+*.log
+logs/
+
+# Dependencias
+node_modules/
+venv/
+__pycache__/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Archivos temporales
+*.tmp
+*.temp
+.temp/
+
+# Docker
+.docker/
+
+# Build files
+dist/
+build/
+
+# Secrets
+secrets/
+.secrets
